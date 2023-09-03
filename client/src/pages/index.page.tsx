@@ -1,10 +1,10 @@
 import { Layout } from '@/components/layout/layout';
-import { Box } from '../components/box';
+import { Main } from './module/main';
 
 const Home = () => {
   return (
     <Layout>
-      <Box>pages/home_component</Box>
+      <Main />
     </Layout>
   );
 };
