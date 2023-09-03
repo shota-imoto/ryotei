@@ -3,13 +3,13 @@ volumes:
   src:
     driver_opts:
       type: none
-      device: $PWD
+      device: $PWD/server
       o: bind
 services:
-  server:
+  app:
     build:
       context: .
-      dockerfile: docker/server/Dockerfile
+      dockerfile: docker/app/Dockerfile
     volumes:
       - src:/go/src/app
     ports:
