@@ -1,4 +1,4 @@
-server/tmp/
+server/app/tmp/
 
 # misc
 .DS_Store
