@@ -14,6 +14,7 @@ func main() {
 
 func run() {
 	r := chi.NewRouter()
+
 	r.Get("/health", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("ok"))
 	})
