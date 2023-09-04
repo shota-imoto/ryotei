@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi"
+	"github.com/shota-imoto/trvl"
 )
 
 func main() {
@@ -18,5 +19,7 @@ func run() {
 	r.Get("/health", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("ok"))
 	})
+	trvl.Handle()
+
 	http.ListenAndServe(":5000", r)
 }
