@@ -1,4 +1,8 @@
+# ローカル環境appサーバーの実行時tmp
 server/cmd/app/tmp/
+
+# ローカルdb
+docker/db/data
 
 # misc
 .DS_Store
