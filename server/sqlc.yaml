@@ -1,0 +1,8 @@
+version: "1"
+packages:
+  - name: "db" # 生成されるパッケージ名
+    path: "db" # 生成されるディレクトリ
+    queries: "./db/queries/" # クエリファイルのあるディレクトリ
+    schema: "./db/migrations/" # マイグレーションファイルのあるディレクトリ
+    engine: "postgresql"
+    sql_package: "pgx/v5"

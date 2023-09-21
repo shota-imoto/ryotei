@@ -1,0 +1,6 @@
+CREATE TABLE schedule (
+	id SERIAL PRIMARY KEY,
+	user_id VARCHAR(12) NOT NULL,
+	start_date TIMESTAMP NOT NULL,
+	created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
