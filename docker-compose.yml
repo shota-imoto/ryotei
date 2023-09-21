@@ -5,6 +5,8 @@ volumes:
       type: none
       device: $PWD/server
       o: bind
+  postgres-data:
+    driver: local
 services:
   db:
     image: postgres:16rc1-bookworm
@@ -13,8 +15,9 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=trvl
     volumes:
-      - ./docker/db/data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
       - ./docker/db/init:/docker-entrypoint-initdb.d
   app:
     build:
@@ -24,3 +27,5 @@ services:
       - src:/go/src/app
     ports:
       - 5000:5000
+    environment:
+      - ENV=dev
