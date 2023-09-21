@@ -38,6 +38,6 @@ func run() error {
 	err = http.ListenAndServe(":5000", r)
 	if err != nil {
 		return fmt.Errorf("run failed: %w", err)
-	}z
+	}
 	return nil
 }
