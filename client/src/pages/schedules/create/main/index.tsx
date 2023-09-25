@@ -9,35 +9,6 @@ type FormValue = {
   start_date: Date;
 };
 
-type ResponseBody = {
-  schedule: {
-    id: number;
-    user_id: string;
-    start_date: string;
-  };
-};
-
-const isResponseBody = (body: unknown): body is ResponseBody => {
-  if (!body || typeof body !== 'object' || !('schedule' in body)) {
-    return false;
-  }
-
-  const schedule = body.schedule;
-  if (!schedule || typeof schedule !== 'object') {
-    return false;
-  }
-  if (!('id' in schedule) || typeof schedule.id !== 'number') {
-    return false;
-  }
-  if (!('user_id' in schedule) || typeof schedule.user_id !== 'string') {
-    return false;
-  }
-  if (!('start_date' in schedule) || typeof schedule.start_date !== 'string') {
-    return false;
-  }
-  return true;
-};
-
 const CreateMain = () => {
   const router = useRouter();
   const { createSchedule, isResponseBody, isErrorBody } = useCreateSchedule();
