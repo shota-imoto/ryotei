@@ -17,7 +17,7 @@ type ResponseBody struct {
 func CreateScheduleHandler(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 	var body struct {
-		StartDate time.Time `json:"start_date" validate:"required"`
+		StartDate Date `json:"start_date" validate:"required"`
 	}
 
 	if err := json.NewDecoder(r.Body).Decode(&body); err != nil {
@@ -28,7 +28,8 @@ func CreateScheduleHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	ss := NewService()
-	s, err := ss.CreateSchedule(ctx, "userID", body.StartDate)
+
+	s, err := ss.CreateSchedule(ctx, "userID", time.Time(body.StartDate))
 	if err != nil {
 		handler.RespondJSON(ctx, w, &handler.ErrorResponse{
 			Message: "ss.CreateSchedule",
