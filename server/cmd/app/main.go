@@ -13,6 +13,7 @@ import (
 
 func main() {
 	fmt.Print("main")
+
 	err := run()
 	if err != nil {
 		panic(err)
